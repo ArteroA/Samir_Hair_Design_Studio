@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Back to the Studio</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500&family=Playfair+Display:wght@400;500&display=swap" rel="stylesheet">
+
+<style>
+body {
+    margin: 0;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    background: #fafafa;
+    font-family: 'Inter', sans-serif;
+    color: #111;
+    opacity: 0;
+    animation: fadeIn 1.2s ease forwards;
+}
+
+/* FADE IN */
+@keyframes fadeIn {
+    to { opacity: 1; }
+}
+
+/* FADE OUT */
+body.fade-out {
+    animation: fadeOut 1s ease forwards;
+}
+
+@keyframes fadeOut {
+    to { opacity: 0; transform: translateY(10px); }
+}
+
+h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: 2.6rem;
+    margin-bottom: 1rem;
+}
+
+p {
+    max-width: 600px;
+    margin: 0 auto;
+    color: #555;
+    line-height: 1.6;
+    font-size: 1.05rem;
+}
+
+.sub {
+    margin-top: 2rem;
+    font-size: 0.85rem;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    color: #888;
+}
+</style>
+
+</head>
+
+<body>
+
+<div>
+    <h1>Wrong turn. Right stylist.</h1>
+
+    <p>
+        Samir’s not here right now — but the studio is waiting for you.
+        You’ll be brought back in just a moment.
+    </p>
+
+    <div class="sub">
+        Returning to the studio…
+    </div>
+</div>
+
+<script>
+
+    setTimeout(() => {
+        document.body.classList.add("fade-out");
+
+        setTimeout(() => {
+            window.location.href = "/";
+        }, 900);
+
+    }, 4000); 
+</script>
+
+</body>
+</html>
