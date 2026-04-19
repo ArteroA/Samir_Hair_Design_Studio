@@ -4,59 +4,25 @@
   <img width="500" height="500" alt="Samir logo" src="https://github.com/user-attachments/assets/7671421a-90ff-41fa-8def-c82ec98becb9" />
 </p>
 
-An editorial-style website designed to reflect the philosophy, personality, and craft of a private, appointment-only hair studio in West Palm Beach.
+Samir has been doing my family's hair for as long as I can remember. He's not a client — he's family.
 
-## Overview
+After hearing business had been slow, I looked him up and found 16 reviews across 32 years in the chair. All five stars. The kind of stylist people keep for decades, but almost impossible to find if you don't already know him.
 
-This project focuses on translating a real-world service experience into a digital environment that feels intentional, calm, and precise.
+This site is my attempt to fix that. To give people a real chance to find someone who genuinely loves what he does and has spent a lifetime getting it right.
 
-Rather than relying on typical salon templates, the design emphasizes:
-- restraint
-- typography
-- spacing
-- and narrative flow
+Built because I enjoy it, and because he deserves the visibility.
 
-The goal was to create a site that feels closer to a fashion editorial than a traditional business website.
+## Tech
 
-## Concept
+HTML, CSS, Vanilla JavaScript. No frameworks.
 
-Samir is an old-school craftsman — direct, detail-oriented, and deeply invested in his work.
+## Deployment
 
-The website reflects that through:
-- minimal color usage
-- strong typographic hierarchy
-- large negative space
-- slow, intentional interaction (hover reveals, parallax)
-
-Every section is designed to feel like a continuation of the same voice.
-
-## Features
-
-- Editorial hero layout with layered gradients
-- Before/after image reveal interaction
-- Subtle parallax motion on scroll
-- Structured testimonial hierarchy
-- Clean service menu with typographic rhythm
-- Fully responsive layout
-
-## Tech Stack
-
-- HTML5
-- CSS3 (custom properties, responsive scaling)
-- Vanilla JavaScript (scroll + interaction effects)
-
-No frameworks — built from scratch for full control over layout and detail.
-
-## Philosophy
-
-Thirty years behind the chair, translated into a digital experience that values:
-- patience over speed  
-- precision over trend  
-- consistency over flash  
+Domain purchased via Hostinger. Hosted on Cloudflare Pages — auto-deploys on push to main. SSL via Cloudflare.
 
 ## Live Preview
-<img width="1000" height="580" alt="Video Project 1" src="https://github.com/user-attachments/assets/e12c85ff-6671-423c-b795-4c8da42c186a" />
 
+<img width="1000" height="580" alt="Video Project 1" src="https://github.com/user-attachments/assets/e12c85ff-6671-423c-b795-4c8da42c186a" />
 <img width="1000" height="580" alt="Video Project 2" src="https://github.com/user-attachments/assets/46c44666-6ae1-43da-86ec-99ec9c844311" />
 
 ## Author
