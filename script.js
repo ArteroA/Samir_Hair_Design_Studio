@@ -18,6 +18,7 @@ document.querySelectorAll('a[href^="#"], #logo-link').forEach(anchor => {
 });
 
 
+
 // ===============================
 // PARALLAX ENGINE (UNCHANGED EFFECT)
 // ===============================

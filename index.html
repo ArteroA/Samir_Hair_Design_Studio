@@ -3,9 +3,44 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Private hair salon in West Palm Beach. Precision cuts, color, and highlights by Samir — by appointment only. Call (561) 704-6226.">
+    <meta property="og:title" content="Hair Design Studio by Samir">
+    <meta property="og:description" content="Precision haircuts and color in West Palm Beach">
+    <meta property="og:image" content="https://yourdomain.com/assets/icons/android-chrome-512x512.png"> <!-- ADD DOMAIN -->
+    <meta property="og:type" content="website">
     <title>Hair Design Studio by Samir</title>
     <link rel="stylesheet" href="styles.css">
+    <link rel="icon" href="/assets/favicon.ico" type="image/x-icon">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500&family=Playfair+Display:wght@400;500&display=swap" rel="stylesheet">
+
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "HairSalon",
+        "name": "Hair Design Studio by Samir",
+        "image": "https://yourdomain.com/assets/images/hero.jpg",
+        "address": {
+            "@type": "PostalAddress",
+            "streetAddress": "7000 S Dixie Hwy, Suite 7",
+            "addressLocality": "West Palm Beach",
+            "addressRegion": "FL",
+            "postalCode": "33405",
+            "addressCountry": "US"
+        },
+        "telephone": "+1-561-704-6226",
+        "openingHours": "Tu-Sa 10:00-19:00",
+        "priceRange": "$$"
+    }
+    </script>
+
+    <!-- Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXX"></script>   <!-- After creating doman find G-ID to track analytics -->
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-XXXXXXX'); /* After creating doman find G-ID to track analytics */
+    </script>
 </head>
 <body>
 
@@ -25,11 +60,13 @@
 
 <section class="hero editorial">
     <div class="hero-content">
-        <h1>Haircuts and color, done with experience, instinct, and honesty. No shortcuts.</h1>
-        <p>One-on-one appointments in a calm West Palm Beach studio — every cut is shaped by hand, not habit.</p>
+        <h1>Precision haircuts and color shaped by experience and intention. No rush. No shortcuts.</h1>
+
+        <p>One-on-one appointments in a calm West Palm Beach studio.</p>
+
         <div class="hero-buttons">
-            <a href="tel:15617046226" class="primary">Call Now</a>
-            <a href="https://search.google.com/local/writereview?placeid=ChIJHWKTm0LX2IgRBeOFu_iyrg4" class="secondary">Book / Review</a>
+            <a href="tel:15617046226" onclick="gtag('event','call_click');" class="primary">Call Now</a>
+            <a href="https://search.google.com/local/writereview?placeid=ChIJHWKTm0LX2IgRBeOFu_iyrg4" onclick="gtag('event','review_click');" class="secondary">Leave a Review</a>
         </div>
     </div>
 </section>
@@ -38,35 +75,37 @@
     <div class="content-wrapper">
         <span class="section-subtitle">Studio Philosophy</span>
         <p>
-            Thirty years behind the chair, still picky about the details, still taking his time, still passionate about every cut.
+            Thirty years behind the chair. Consistent work, calm pacing, and attention to detail in every appointment.
         </p>
     </div>
 </section>
 
-
-<section id="about-samir" class="editorial-text">
+<section id="about-samir" class="editorial-text about-samir">
     <div class="content-wrapper">
 
         <span class="section-subtitle">About the Stylist</span>
+        <div class="about-grid">
 
-        <h2>Samir</h2>
+            <!-- IMAGE -->
+            <div class="about-image">
+                <img src="assets/images/samir-storefront.webp" alt="Samir Hair Design Studio storefront exterior">
+            </div>
 
-        <p>
-            Samir is a strongly opinionated, old-school craftsman — the kind of stylist who believes precision matters more than speed, and honesty matters more than trends.
-        </p>
+            <!-- TEXT -->
+            <div class="about-text">
+                <h2>Samir</h2>
 
-        <p>
-            Every appointment receives his full attention. He puts 100% into every cut, color, and correction — whether it’s simple maintenance or full transformation.
-        </p>
+                <p>Samir is picky, passionate, and takes his time as a stylist who cares more about how something is done than how fast it’s finished.</p>
 
-        <p>
-           On any given day, you might find him mid-foils taking a quiet bite of tabbouleh, or glancing at a football match before returning to his work. Nothing rushed. Nothing half-finished.
-        </p>
+                <p>He’s focused on the simple things: clean work, honest advice, and hair that grows out properly.</p>
 
-        <p>
-            Despite his direct nature, clients often describe something consistent in him: a familiar presence. Someone who remembers your hair, your patterns, and the way you like to feel when you leave the chair.
-        </p>
+                <p>Every appointment gets his full attention. Whether it’s a quick cleanup or a full color correction, he’s fully in it until it’s right.</p>
 
+                <p>You’ll usually catch him mid-foils, with a bite of tabbouleh nearby, and a football match on in the background.</p>
+
+                <p>Clients usually describe him the same way: someone who remembers your hair, your patterns, and how you like to feel when you leave the chair.</p>
+            </div>
+        </div>
     </div>
 </section>
 
@@ -78,11 +117,12 @@
         <div class="reveal">
             <div class="comparison-box">
                 <span class="label">Before</span>
-                <img src="assets/images/before.jpg" alt=""> <!-- ADD ALT TEXT WITH KEYWORDS -->
+                <img src="assets/images/before.jpg" alt="Before hair color correction in West Palm Beach salon"> 
             </div>
+            
             <div class="comparison-box">
                 <span class="label">After</span>
-                <img src="assets/images/after.jpg" alt=""> <!-- ADD ALT TEXT WITH KEYWORDS -->
+                <img src="assets/images/after.jpg" alt="After balayage and dimensional hair color by West Palm Beach stylist"> 
             </div>
         </div>
         <div class="card-text">
@@ -95,11 +135,11 @@
         <div class="reveal">
             <div class="comparison-box">
                 <span class="label">Before</span>
-                <img src="assets/images/before2.png" alt=""> <!-- ADD ALT TEXT WITH KEYWORDS -->
+                <img src="assets/images/before2.png" alt="Before precision haircut at West Palm Beach private hair studio"> 
             </div> 
             <div class="comparison-box">
                 <span class="label">After</span>
-                <img src="assets/images/after2.png" alt=""> <!-- ADD ALT TEXT WITH KEYWORDS -->
+                <img src="assets/images/after2.png" alt="Precision layered haircut styled in private salon West Palm Beach">
             </div>
         </div>
         <div class="card-text">
@@ -112,11 +152,11 @@
         <div class="reveal">
             <div class="comparison-box">
                 <span class="label">Before</span>
-                <img src="assets/images/before3.jpg" alt="Before"> <!-- ADD ALT TEXT WITH KEYWORDS -->
+                <img src="assets/images/before3.jpg" alt="Before full hair color correction transformation at hair salon for men and women."> 
             </div>
             <div class="comparison-box">
                 <span class="label">After</span>
-                <img src="assets/images/after3.jpeg" alt="After"> <!-- ADD ALT TEXT WITH KEYWORDS -->
+                <img src="assets/images/after3.jpeg" alt="Full hair color correction transformation with restored tone and shine">
             </div>
         </div>
         <div class="card-text">
@@ -151,7 +191,7 @@
         </div>
 
         <div class="testimonial-actions">
-            <a href="https://search.google.com/local/writereview?placeid=ChIJHWKTm0LX2IgRBeOFu_iyrg4" target="_blank" class="review-btn">
+            <a href="https://search.google.com/local/writereview?placeid=ChIJHWKTm0LX2IgRBeOFu_iyrg4" onclick="gtag('event','review_click');" target="_blank" class="review-btn">
                 Write a Review
             </a>
         </div>
@@ -162,44 +202,37 @@
     <div class="content-wrapper">
 
         <span class="section-subtitle">Services</span>
-        <h2>Hair Design & Color Menu</h2>
+        <h2>The Menu</h2>
         <p class="services-intro">
-            Precision-based services tailored to your hair’s structure, tone, and long-term health.
+            Everything from a quick cleanup to a full color transformation — priced honestly, done properly.
         </p>
 
         <div class="service-grid">
 
             <div class="service-block">
-                <h3>Core Services</h3>
-                <p>Haircut — starting at $40</p>
-                <p>Blowdry — starting at $35</p>
-                <p>Blowouts — starting at $45</p>
-                <p>Bang trim — $15 when needed</p>
-                <p>Styling — from $50</p>
+                <h3>Cutting</h3>
+                <p>Men's haircut — $30</p>
+                <p>Women's haircut — from $35</p>
+                <p>Bang trim — $15</p>
             </div>
 
             <div class="service-block">
-                <h3>Color Services</h3>
-                <p>Full color — from $90</p>
-                <p>Highlights — from $120</p>
-                <p>Balayage — from $150</p>
-                <p>Ombre — from $140</p>
-                <p>Gloss / tone refresh — from $45</p>
-                <p>Hair glossing — from $45</p>
+                <h3>Color</h3>
+                <p>One-process color — from $60</p>
+                <p>Partial highlights — from $50</p>
+                <p>Full highlights — from $90</p>
+                <p>Toner — priced separately</p>
+            </div>
+
+            <div class="service-block">
+                <h3>Styling</h3>
+                <p>Blow-dry — from $25</p>
+                <p>Flat iron — from $35</p>
             </div>
 
             <div class="service-block">
                 <h3>Treatments</h3>
-                <p>Hydration treatment — from $60</p>
-                <p>Keratin treatment — from $180</p>
-                <p>Straightening — from $120</p>
-            </div>
-
-            <div class="service-block">
-                <h3>Studio Experience</h3>
-                <p>Private appointment only</p>
-                <p>One-on-one sessions</p>
-                <p>Consultation included with color work</p>
+                <p>Botox treatment — from $95 <span style="color:#888; font-size:0.9rem;">(formaldehyde-free)</span></p>
             </div>
 
         </div>
@@ -213,15 +246,15 @@
         <div class="contact-left">
             <h2>Visit the Studio</h2>
 
-            <p>Appointments only. No walk-ins.</p>
+            <p>By Appointment Only.</p>
 
-            <p>7000 S Dixie Hwy, West Palm Beach, FL</p>
+            <p>7000 S Dixie Hwy, Suite 7, West Palm Beach, FL</p>
 
             <div class="buttons">
-                <a href="tel:15617046226" class="primary">Call</a>
-                <a href="sms:15617046226" class="secondary">Text</a>
-                <a href="https://maps.google.com/?q=7000+S+Dixie+Hwy+West+Palm+Beach+FL" target="_blank" class="secondary">Directions</a>
+                <a href="tel:15617046226" onclick="gtag('event','call_click');" class="primary">Call: (561) 704-6226</a>
+                <a href="sms:15617046226" onclick="gtag('event','text_click');" class="secondary">Text</a>
             </div>
+
         </div>
 
         <div class="contact-right">
@@ -230,6 +263,9 @@
                 Tuesday–Saturday: 10 AM – 7 PM<br>
                 Sunday–Monday: Closed
             </p>
+            <div class="buttons">
+                <a href="https://maps.google.com/?q=7000+S+Dixie+Hwy+Suite+7+West+Palm+Beach+FL" onclick="gtag('event','directions_click');" target="_blank" class="secondary">Directions</a>
+            </div>
         </div>
 
     </div>
@@ -238,15 +274,22 @@
 <div class="map">
     <p class="map-label">Studio Location</p>
     <iframe 
-        src="https://www.google.com/maps?q=7000+S+Dixie+Hwy+West+Palm+Beach+FL&output=embed"
+        src="https://www.google.com/maps?q=7000+S+Dixie+Hwy+Suite+7+West+Palm+Beach+FL&output=embed"
         width="100%" 
         height="300" 
         style="border:0;" 
-        allowfullscreen="" 
-        loading="lazy">
+        loading="lazy"
+        allowfullscreen
+        referrerpolicy="no-referrer-when-downgrade"
+        allow="fullscreen">
     </iframe>
 </div>
 
+<div class="seo-text">
+    <p>
+        Hair salon in West Palm Beach specializing in precision haircuts, balayage, highlights, color correction, and one-on-one private appointments. Serving clients looking for natural color, long-lasting haircuts, and personalized styling.
+    </p>
+</div>
 
 <footer>
     © 2026 Hair Design Studio by Samir
@@ -254,5 +297,19 @@
 </footer>
 
 <script src="script.js"></script>
+
+<script>
+    let tracked = {};
+    window.addEventListener('scroll', () => {
+        const pct = Math.round((window.scrollY / (document.body.scrollHeight - window.innerHeight)) * 100);
+        [25, 50, 75, 90].forEach(milestone => {
+            if (pct >= milestone && !tracked[milestone]) {
+                tracked[milestone] = true;
+                gtag('event', 'scroll_depth', { depth: milestone });
+            }
+        });
+    });
+</script>
+
 </body>
 </html>

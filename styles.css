@@ -1,3 +1,7 @@
+/* ================================
+   1. RESET & BASE
+================================ */
+
 * {
     margin: 0;
     padding: 0;
@@ -11,13 +15,25 @@ body {
     overflow-x: hidden;
 }
 
+html {
+    scroll-behavior: smooth;
+}
+
+.seo-text {
+    position: absolute;
+    left: -9999px;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+}
+
+
 /* ================================
-   BRAND SYSTEM (SPACING + RHYTHM)
-   Hair Design Studio by Samir
+   2. DESIGN TOKENS & CSS VARIABLES
 ================================ */
 
-/* Core spacing scale */
 :root {
+    /* Spacing scale */
     --space-1: 0.25rem;
     --space-2: 0.5rem;
     --space-3: 0.75rem;
@@ -35,16 +51,20 @@ body {
     --container-md: 1100px;
     --container-lg: 1400px;
 
-    /* Border + subtle depth system */
+    /* Borders & shadows */
     --border-light: rgba(0,0,0,0.06);
     --shadow-soft: 0 8px 25px rgba(0,0,0,0.05);
     --shadow-medium: 0 15px 40px rgba(0,0,0,0.08);
 
-    /* Section rhythm (IMPORTANT) */
+    /* Section rhythm */
     --section-y: var(--space-10);
 }
 
-/* TYPOGRAPHY */
+
+/* ================================
+   3. TYPOGRAPHY
+================================ */
+
 h1 {
     font-family: 'Playfair Display', serif;
     font-weight: 400;
@@ -67,7 +87,119 @@ p {
     font-size: 1.1rem;
 }
 
-/* HEADER & LOGO */
+
+/* ================================
+   4. LAYOUT UTILITIES
+================================ */
+
+.content-wrapper {
+    padding: 0 var(--space-7);
+    max-width: var(--container-md);
+    margin: 0 auto;
+}
+
+section {
+    padding: var(--section-y) 0;
+    opacity: 0;
+    transform: translateY(20px);
+    transition: all 0.8s ease;
+}
+
+section.in-view {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.section-subtitle {
+    display: block;
+    text-align: center;
+    width: 100%;
+    font-size: 0.7rem;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    color: #999;
+    margin-bottom: 3rem;
+}
+
+
+/* ================================
+   5. BUTTONS
+================================ */
+
+.buttons {
+    margin-top: 2.5rem;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    flex-wrap: wrap;
+}
+
+.buttons a {
+    padding: 14px 32px;
+    border-radius: 40px;
+    font-size: 0.85rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    text-decoration: none;
+    transition: all 0.3s ease;
+}
+
+.primary {
+    background: #111;
+    color: #fff;
+}
+
+.primary:hover {
+    background: #333;
+}
+
+.secondary {
+    border: 1px solid #111;
+    color: #111;
+}
+
+.secondary:hover {
+    background: #111;
+    color: #fff;
+}
+
+.review-btn {
+    text-decoration: none;
+    color: #111;
+    font-size: 0.8rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    border-bottom: 1px solid #111;
+    padding-bottom: 5px;
+    transition: opacity 0.3s ease;
+}
+
+.review-btn:hover {
+    opacity: 0.5;
+}
+
+.social-link {
+    display: inline-block;
+    margin-top: 2rem;
+    font-size: 0.8rem;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    color: #111;
+    text-decoration: none;
+    border-bottom: 1px solid #111;
+    padding-bottom: 5px;
+    transition: opacity 0.3s ease;
+}
+
+.social-link:hover {
+    opacity: 0.5;
+}
+
+
+/* ================================
+   6. HEADER & NAVIGATION
+================================ */
+
 header {
     position: fixed;
     width: 100%;
@@ -117,9 +249,15 @@ nav a::after {
     transition: width 0.3s ease;
 }
 
-nav a:hover::after { width: 100%; }
+nav a:hover::after {
+    width: 100%;
+}
 
-/* HERO */
+
+/* ================================
+   7. HERO SECTION
+================================ */
+
 .hero {
     height: 100vh;
     display: flex;
@@ -128,6 +266,7 @@ nav a:hover::after { width: 100%; }
     color: #111;
     background: #fff;
     overflow: hidden;
+    opacity: 1;
 }
 
 .hero::before {
@@ -140,7 +279,7 @@ nav a:hover::after { width: 100%; }
     background:
         radial-gradient(
             circle at 30% 30%,
-            rgba(124, 132, 221, 0.14),
+            rgba(201, 97, 207, 0.14),
             transparent 55%
         ),
         radial-gradient(
@@ -154,12 +293,8 @@ nav a:hover::after { width: 100%; }
 }
 
 @keyframes drift {
-    0% {
-        transform: translate(-2%, -1%) scale(1);
-    }
-    100% {
-        transform: translate(3%, 2%) scale(1.05);
-    }
+    0%   { transform: translate(-2%, -1%) scale(1); }
+    100% { transform: translate(3%, 2%) scale(1.05); }
 }
 
 .hero.editorial {
@@ -167,7 +302,6 @@ nav a:hover::after { width: 100%; }
         linear-gradient(#fff, #fff),
         linear-gradient(180deg, rgba(0,0,0,0.04), transparent 40%);
 }
-
 
 .hero::after {
     content: "";
@@ -232,24 +366,31 @@ nav a:hover::after { width: 100%; }
     transform: translateY(-1px);
 }
 
+
+/* ================================
+   8. TRUST LINE (TAGLINE BAR)
+================================ */
+
 .trust-line {
-    padding: 5rem 0;
+    padding: 3rem 0;
     text-align: center;
     background: #fff;
+    border-top: 1px solid rgba(0,0,0,0.06);
+    border-bottom: 1px solid rgba(0,0,0,0.06);
+}
+
+.trust-line p {
+    font-size: 1rem;
+    line-height: 1.6;
+    color: #666;
+    font-weight: 400;
+    max-width: 600px;
+    margin: 0 auto;
 }
 
 .trust-line .content-wrapper {
     max-width: 720px;
     margin: 0 auto;
-}
-
-.trust-line p {
-    font-size: 1.1rem;
-    line-height: 1.7;
-    color: #555;
-    font-family: 'Inter', sans-serif;
-    font-weight: 300;
-    letter-spacing: 0.2px;
 }
 
 .trust-line::before {
@@ -262,20 +403,18 @@ nav a:hover::after { width: 100%; }
 }
 
 .trust-line::after {
-  content: "";
-  display: block;
-  width: 60px;
-  height: 1px;
-  background: rgba(0,0,0,0.15); 
-  margin: 2.5rem auto 0; 
+    content: "";
+    display: block;
+    width: 60px;
+    height: 1px;
+    background: rgba(0,0,0,0.15);
+    margin: 2.5rem auto 0;
 }
 
 
-
-/* TRANSFORM CARDS & REVEAL */
-section {
-    padding: var(--section-y) 0;
-}
+/* ================================
+   9. BEFORE/AFTER TRANSFORM CARDS
+================================ */
 
 .transform-card {
     margin: 0 auto var(--space-9);
@@ -285,7 +424,7 @@ section {
     transform: translateY(-5px);
     transition: transform 0.4s ease;
 }
- 
+
 .reveal {
     width: 100vw;
     height: 75vh;
@@ -294,25 +433,25 @@ section {
     right: 50%;
     margin-left: -50vw;
     margin-right: -50vw;
-    display: flex; 
-    gap: 0; 
+    display: flex;
+    gap: 0;
     background-color: #000;
     overflow: hidden;
 }
 
 .comparison-box {
     position: relative;
-    flex: 1; 
+    flex: 1;
     height: 100%;
     overflow: hidden;
-    transition: flex 0.8s cubic-bezier(0.2, 1, 0.3, 1); 
-    will-change: flex; 
+    transition: flex 0.8s cubic-bezier(0.2, 1, 0.3, 1);
+    will-change: flex;
 }
 
 .reveal img {
     position: absolute;
     top: 0;
-    width: 100vw; 
+    width: 100vw;
     height: 100%;
     object-fit: cover;
     transition: all 0.8s cubic-bezier(0.2, 1, 0.3, 1);
@@ -329,10 +468,9 @@ section {
 }
 
 .comparison-box:hover {
-    flex: 3; 
+    flex: 3;
 }
 
-/* LABELS */
 .label {
     position: absolute;
     bottom: 30px;
@@ -345,46 +483,157 @@ section {
     backdrop-filter: blur(5px);
     z-index: 10;
     border: 1px solid rgba(255,255,255,0.2);
-    pointer-events: none; /* Mouse passes through to box */
+    pointer-events: none;
 }
 
 .comparison-box:first-child .label { left: 30px; }
-.comparison-box:last-child .label { right: 30px; }
+.comparison-box:last-child .label  { right: 30px; }
 
 .card-text {
     padding: var(--space-8) var(--space-7) 0;
     max-width: var(--container-sm);
 }
 
-/* CONTENT BLOCKS */
-.content-wrapper {
-    padding: 0 var(--space-7);
-    max-width: var(--container-md);
-    margin: 0 auto;
-}
 
-.buttons {
-    margin-top: 2.5rem;
-}
 
-.buttons a {
-    display: inline-block;
-    margin-right: 12px;
-    padding: 15px 35px;
-    border-radius: 40px;
-    text-decoration: none;
-    font-size: 0.9rem;
-    transition: all 0.3s ease;
-}
+/* ================================
+   10. SERVICES SECTION
+================================ */
 
-/* TESTIMONIALS SECTION */
-.testimonials {
-    background-color: #fafafa; /* Very light grey to separate sections */
+#services {
+    background: #fafafa;
     text-align: center;
-    padding: 10rem 0;
 }
 
-/* FEATURED TESTIMONIAL */
+#services h2 {
+    margin-bottom: 2rem;
+}
+
+#services p {
+    font-size: 1.1rem;
+    margin-bottom: 0.5rem;
+    color: #333;
+}
+
+.services-intro {
+    max-width: 650px;
+    margin: 1.5rem auto 5rem;
+    color: #555;
+}
+
+.service-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 3rem 4rem;
+    max-width: 1000px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.service-block {
+    background: transparent;
+    padding: 0;
+    box-shadow: none;
+}
+
+.service-block h3 {
+    font-family: 'Playfair Display', serif;
+    font-weight: 400;
+    font-size: 1.4rem;
+    margin-bottom: 1.5rem;
+    letter-spacing: -0.2px;
+}
+
+.service-block p {
+    font-size: 1rem;
+    color: #444;
+    margin-bottom: 0.7rem;
+    padding-left: 0;
+    position: relative;
+}
+
+
+/* ================================
+   11. ABOUT SECTION
+================================ */
+
+#about-samir p {
+    max-width: 720px;
+    margin: 0 auto 1.5rem;
+    color: #444;
+}
+
+#about-samir p:first-of-type {
+    font-size: 1.15rem;
+    color: #333;
+}
+
+.about-samir .about-grid {
+    display: grid;
+    grid-template-columns: 1fr 1.2fr;
+    gap: 5rem;
+    align-items: center;
+    margin-top: 3rem;
+}
+
+.about-image {
+    width: 100%;
+    height: 640px;
+    overflow: hidden;
+    border-radius: 18px;
+    box-shadow: var(--shadow-medium);
+    position: relative;
+}
+
+.about-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center 10%;
+    transform: scale(1.02);
+    transition: transform 0.6s ease;
+}
+
+.about-image:hover img {
+    transform: scale(1.03);
+}
+
+.about-text {
+    max-width: 720px;
+}
+
+.about-text h2 {
+    margin-bottom: 1.5rem;
+}
+
+.about-text p {
+    margin-bottom: 1.4rem;
+    max-width: 60ch;
+}
+
+
+/* ================================
+   12. TESTIMONIALS SECTION
+================================ */
+
+.testimonials {
+    background-color: #fafafa;
+    text-align: center;
+}
+
+.testimonials .content-wrapper {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 0 4vw;
+}
+
+.testimonial-container {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 0 6vw;
+}
+
+/* Featured testimonial */
 .testimonial-featured {
     grid-column: 1 / -1;
     width: 100%;
@@ -412,7 +661,7 @@ section {
     color: #555;
 }
 
-/* GRID (2 COLUMN) */
+/* Testimonial grid */
 .testimonial-grid {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
@@ -421,28 +670,12 @@ section {
     margin: 0 auto;
 }
 
-
-.section-subtitle {
-    display: block;
-    font-size: 0.7rem;
-    text-transform: uppercase;
-    letter-spacing: 3px;
-    color: #999;
-    margin-bottom: 3rem;
-}
-
-.testimonial-container {
-    max-width: 900px;
-    margin: 0 auto;
-    padding: 0 6vw;
-}
-
 .testimonial-item {
     background: #fff;
     padding: 2.5rem;
     border-radius: 16px;
     text-align: left;
-      box-shadow: var(--shadow-soft);
+    box-shadow: var(--shadow-soft);
     transition: transform 0.3s ease;
 }
 
@@ -467,123 +700,27 @@ section {
     color: #555;
 }
 
-.testimonials .content-wrapper {
-    max-width: 1400px;
-    margin: 0 auto;
-    padding: 0 4vw;
-}
-/* THE REVIEW BUTTON */
 .testimonial-actions {
     margin-top: 4rem;
 }
 
-#services {
-    background: #fafafa;
-    text-align: center;
-}
-
-#services h2 {
-    margin-bottom: 2rem;
-}
-
-#services p {
-    font-size: 1.1rem;
-    margin-bottom: 0.5rem;
-    color: #333;
-}
-
-.section-subtitle {
-  display: block; 
-  text-align: center;
-  width: 100%;
-}
-
-#about-samir p {
-    max-width: 720px;
-    margin: 0 auto 1.5rem;
-    color: #444;
-}
-
-#about-samir p:first-of-type {
-    font-size: 1.15rem;
-    color: #333;
-}
 
 /* ================================
-   SERVICE MENU — CLEAN EDITORIAL
+   13. CONTACT SECTION
 ================================ */
 
-#services {
-    background: #fafafa;
-}
-
-.services-intro {
-    max-width: 650px;
-    margin: 1.5rem auto 5rem;
-    color: #555;
-}
-
-.service-grid {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 4rem;
-    max-width: 1000px;
-    margin: 0 auto;
-    text-align: center;
-}
-
-/* REMOVE HEAVY CARD FEEL */
-.service-block {
-    background: transparent;
-    padding: 0;
-    box-shadow: none;
-}
-
-/* subtle section label */
-.service-block h3 {
-    font-family: 'Playfair Display', serif;
-    font-weight: 400;
-    font-size: 1.4rem;
-    margin-bottom: 1.5rem;
-    letter-spacing: -0.2px;
-}
-
-/* CLEAN LIST STYLE */
-.service-block p {
-    font-size: 1rem;
-    color: #444;
-    margin-bottom: 0.7rem;
-    padding-left: 0;
-    position: relative;
-}
-
-
-
-
-.review-btn {
-    text-decoration: none;
-    color: #111;
-    font-size: 0.8rem;
-    text-transform: uppercase;
-    letter-spacing: 1px;
-    border-bottom: 1px solid #111;
-    padding-bottom: 5px;
-    transition: opacity 0.3s ease;
-}
-
-.review-btn:hover {
-    opacity: 0.5;
-}
-
-.primary { background: #111; color: #fff; }
-.secondary { border: 1px solid #111; color: #111; }
-.primary:hover { background: #333; }
-
 .contact-grid {
-    display: grid;
-    grid-template-columns: 1.5fr 1fr;
-    gap: 4rem;
-    align-items: start;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 2.5rem;
+}
+
+.contact-right p {
+    color: #444;
+    font-size: 1rem;
+    line-height: 1.6;
 }
 
 .contact-right h3 {
@@ -593,24 +730,19 @@ section {
     margin-bottom: 1rem;
 }
 
-.contact-right p {
-    color: #444;
-    font-size: 1rem;
-    line-height: 1.6;
+.buttons {
+    justify-content: center;
 }
+
+
+/* ================================
+   14. MAP
+================================ */
 
 .map {
     width: 100%;
     padding: 0 6vw;
-    margin-top: 5rem;
-}
-
-.map iframe {
-    width: 100%;
-    height: 380px;
-    border: none;
-    border-radius: 16px;
-    display: block;
+    margin-top: 6rem;
 }
 
 .map-label {
@@ -622,58 +754,26 @@ section {
     margin-bottom: 1rem;
 }
 
-.buttons {
-    margin-top: 2.5rem;
-    display: flex;
-    gap: 12px;
-    flex-wrap: wrap;
+.map iframe {
+    width: 100%;
+    height: 420px;
+    border: none;
+    border-radius: 20px;
+    display: block;
+    box-shadow: var(--shadow-medium);
+    filter: grayscale(1) contrast(1.05);
+    transition: all 0.5s ease;
 }
 
-.buttons a {
-    padding: 14px 32px;
-    border-radius: 40px;
-    font-size: 0.85rem;
-    text-transform: uppercase;
-    letter-spacing: 1px;
-    text-decoration: none;
-    transition: all 0.3s ease;
+.map iframe:hover {
+    filter: grayscale(0);
+    transform: scale(1.01);
 }
 
-.primary {
-    background: #111;
-    color: #fff;
-}
 
-.primary:hover {
-    background: #333;
-}
-
-.secondary {
-    border: 1px solid #111;
-    color: #111;
-}
-
-.secondary:hover {
-    background: #111;
-    color: #fff;
-}
-
-.social-link {
-    display: inline-block;
-    margin-top: 2rem;
-    font-size: 0.8rem;
-    text-transform: uppercase;
-    letter-spacing: 2px;
-    color: #111;
-    text-decoration: none;
-    border-bottom: 1px solid #111;
-    padding-bottom: 5px;
-    transition: opacity 0.3s ease;
-}
-
-.social-link:hover {
-    opacity: 0.5;
-}
+/* ================================
+   15. FOOTER
+================================ */
 
 footer {
     text-align: center;
@@ -683,6 +783,11 @@ footer {
     letter-spacing: 1px;
 }
 
+
+/* ================================
+   16. RESPONSIVE — MOBILE (≤768px)
+================================ */
+
 @media (max-width: 768px) {
 
     header {
@@ -690,23 +795,18 @@ footer {
     }
 
     nav {
-        display: none; 
+        display: none;
     }
 
     .hero-content {
         padding: 0 1.5rem;
     }
 
-    .testimonial-grid {
-        grid-template-columns: 1fr;
-    }
-
-      .service-grid {
-        grid-template-columns: 1fr;
-    }
-
-    .service-block {
-        padding: 2rem;
+    .sticky-call {
+        bottom: 16px;
+        right: 16px;
+        padding: 12px 22px;
+        font-size: 0.75rem;
     }
 
     section {
@@ -717,16 +817,37 @@ footer {
         padding: 2rem 1.5rem 0;
     }
 
-    .contact-grid {
-        grid-template-columns: 1fr;
-        gap: 2rem;
-    }
-
     .content-wrapper {
         padding: 0 1.5rem;
     }
 
     .reveal {
         height: 60vh;
+    }
+
+    .about-samir .about-grid {
+        grid-template-columns: 1fr;
+        gap: 2.5rem;
+    }
+
+    .about-image {
+        height: 360px;
+    }
+
+    .service-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .service-block {
+        padding: 2rem;
+    }
+
+    .testimonial-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .contact-grid {
+        grid-template-columns: 1fr;
+        gap: 2rem;
     }
 }
