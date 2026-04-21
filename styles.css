@@ -323,7 +323,7 @@ nav a:hover::after {
 }
 
 .hero-buttons {
-    margin-top: 2rem;
+    margin-top: 4rem;
     display: flex;
     gap: 12px;
     flex-wrap: wrap;
@@ -421,13 +421,13 @@ nav a:hover::after {
 }
 
 .transform-card:hover {
-    transform: translateY(-5px);
+    transform: translateY(-4px);
     transition: transform 0.4s ease;
 }
 
 .reveal {
     width: 100vw;
-    height: 75vh;
+    height: 85vh;
     position: relative;
     left: 50%;
     right: 50%;
@@ -435,7 +435,7 @@ nav a:hover::after {
     margin-right: -50vw;
     display: flex;
     gap: 0;
-    background-color: #000;
+    background-color: #ffffff;
     overflow: hidden;
 }
 
@@ -467,9 +467,25 @@ nav a:hover::after {
     object-position: right center;
 }
 
-.comparison-box:hover {
-    flex: 3;
+.comparison-box:first-child {
+    border-right: 3px solid rgb(255, 255, 255);
 }
+
+.comparison-box:hover {
+    flex: 2.2;
+}
+
+/* Card 1 — Dimensional Color */
+#card-1 .comparison-box:first-child img { object-position: center; }
+#card-1 .comparison-box:last-child img  { object-position: center 20%;}
+
+/* Card 2 — Structural Cut */
+#card-2 .comparison-box:first-child img  { object-position: left 0%}
+#card-2 .comparison-box:last-child img   { object-position: left 0%}
+
+/* Card 3 — Full Color Correction */
+#card-3 .comparison-box:first-child img  { object-position: left 0%}
+#card-3 .comparison-box:last-child img   { object-position: left 0%}
 
 .label {
     position: absolute;
@@ -479,10 +495,10 @@ nav a:hover::after {
     text-transform: uppercase;
     letter-spacing: 2px;
     color: #fff;
-    background: rgba(0, 0, 0, 0.3);
+    background: rgba(0, 0, 0, 0.55);
     backdrop-filter: blur(5px);
     z-index: 10;
-    border: 1px solid rgba(255,255,255,0.2);
+    border: 1px solid rgba(255,255,255,0.35);
     pointer-events: none;
 }
 
@@ -494,6 +510,10 @@ nav a:hover::after {
     max-width: var(--container-sm);
 }
 
+.transform-card:last-child {
+    margin-bottom: 0;
+}
+
 
 
 /* ================================
@@ -501,7 +521,7 @@ nav a:hover::after {
 ================================ */
 
 #services {
-    background: #fafafa;
+    background: #ffffff;
     text-align: center;
 }
 
@@ -517,14 +537,15 @@ nav a:hover::after {
 
 .services-intro {
     max-width: 650px;
-    margin: 1.5rem auto 5rem;
+    margin: 1.5rem auto 3rem;
     color: #555;
+    padding: 1.5 rem 0;
 }
 
 .service-grid {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
-    gap: 3rem 4rem;
+    gap: 3rem 8rem;
     max-width: 1000px;
     margin: 0 auto;
     text-align: center;
@@ -550,6 +571,12 @@ nav a:hover::after {
     margin-bottom: 0.7rem;
     padding-left: 0;
     position: relative;
+}
+
+.service-block--centered {
+    max-width: 480px;
+    margin: 3rem auto 0;
+    text-align: center;
 }
 
 
@@ -709,7 +736,12 @@ nav a:hover::after {
    13. CONTACT SECTION
 ================================ */
 
+#contact {
+    background: #fafafa;
+}
+
 .contact-grid {
+
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -740,9 +772,10 @@ nav a:hover::after {
 ================================ */
 
 .map {
-    width: 100%;
-    padding: 0 6vw;
-    margin-top: 6rem;
+    padding-bottom: 6rem;
+    padding: 0;
+    margin-top: 0;
+    background: #fafafa;
 }
 
 .map-label {
@@ -771,6 +804,7 @@ nav a:hover::after {
 }
 
 
+
 /* ================================
    15. FOOTER
 ================================ */
@@ -781,8 +815,48 @@ footer {
     font-size: 0.8rem;
     color: #999;
     letter-spacing: 1px;
+    background: #fff;
+    position: relative;
+    overflow: hidden;
 }
 
+footer::before {
+    content: "";
+    position: absolute;
+    width: 140%;
+    height: 140%;
+    top: -20%;
+    left: -20%;
+    background:
+        radial-gradient(
+            circle at 70% 70%,
+            rgba(185, 142, 185, 0.14),
+            transparent 85%
+        ),
+        radial-gradient(
+            circle at 30% 40%,
+            rgba(252, 252, 252, 0.05),
+            transparent 30%
+        );
+    animation: drift 14s ease-in-out infinite alternate;
+    filter: blur(20px);
+    pointer-events: none;
+}
+
+.footer-credit {
+    display: inline-block;
+    margin-top: 1rem;
+    font-size: 0.7rem;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    color: #ccc;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.footer-credit:hover {
+    color: #999;
+}
 
 /* ================================
    16. RESPONSIVE — MOBILE (≤768px)
@@ -810,7 +884,7 @@ footer {
     }
 
     section {
-        padding: 5rem 0;
+        padding: 3rem 0;
     }
 
     .card-text {
@@ -822,7 +896,8 @@ footer {
     }
 
     .reveal {
-        height: 60vh;
+        height: auto;
+        aspect-ratio: 4 / 3;
     }
 
     .about-samir .about-grid {
@@ -836,6 +911,7 @@ footer {
 
     .service-grid {
         grid-template-columns: 1fr;
+        gap: 0.1rem;
     }
 
     .service-block {
@@ -846,8 +922,24 @@ footer {
         grid-template-columns: 1fr;
     }
 
+    .testimonial-featured p {
+        font-size: 1.4rem;
+    }
+
     .contact-grid {
         grid-template-columns: 1fr;
         gap: 2rem;
     }
+
+    @media (max-width: 768px) {
+    .map iframe {
+        filter: grayscale(0);
+        transform: none;
+    }
+    
+    .map iframe:hover {
+        transform: none;
+    }
+    }
+
 }

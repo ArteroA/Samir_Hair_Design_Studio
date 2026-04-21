@@ -1,3 +1,6 @@
+console.log('%c Built by Antonio G. Artero ', 'background: #111; color: #fff; padding: 6px 12px; font-size: 12px; letter-spacing: 2px;');
+console.log('%c https://www.linkedin.com/in/antoniogartero ', 'color: #999; font-size: 11px; letter-spacing: 1px;');
+
 // ===============================
 // LOGO + NAV SMOOTH SCROLL
 // ===============================
@@ -34,7 +37,7 @@ function updateParallax() {
 
         if (rect.top < windowHeight && rect.bottom > 0) {
             const shift = (rect.top - windowHeight / 2) * 0.1;
-            img.style.transform = `translateY(${shift}px) scale(1.1)`;
+            img.style.transform = `translateY(${shift}px)`;
         }
     });
 
