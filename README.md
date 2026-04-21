@@ -16,9 +16,19 @@ Built because I enjoy it, and because he deserves the visibility.
 
 HTML, CSS, Vanilla JavaScript. No frameworks.
 
+## Features
+
+- Editorial before/after image reveal interaction
+- Scroll depth analytics via GA4
+- Schema markup for local SEO
+- Custom event tracking — calls, texts, directions, reviews
+- Fully responsive layout
+- Deployed via CI/CD — auto-deploys on push to main
+
 ## Deployment
 
-Domain purchased via Hostinger. Hosted on Cloudflare Pages — auto-deploys on push to main. SSL via Cloudflare.
+Domain: [hairdesignstudiobysamir.com](https://hairdesignstudiobysamir.com)  
+Hosted on Cloudflare Pages. DNS and SSL via Cloudflare. Domain via Hostinger.
 
 ## Live Preview
 
@@ -27,4 +37,5 @@ Domain purchased via Hostinger. Hosted on Cloudflare Pages — auto-deploys on p
 
 ## Author
 
-Built and designed by Antonio Gabe Artero
+Built and designed by Antonio Gabe Artero  
+[LinkedIn](https://www.linkedin.com/in/antoniogartero)
