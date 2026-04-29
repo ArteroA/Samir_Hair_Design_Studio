@@ -49,8 +49,11 @@
 
 <header>
     <div class="logo">
-      <a href="#" id="logo-link">Hair Design Studio by Samir</a>
-    </div>
+    <a href="#" id="logo-link">
+        <span class="logo-name">Hair Design Studio</span>
+        <span class="logo-sub">by Samir</span>
+    </a>
+</div>
     <nav>
         <a href="#about-samir">About</a> <!-- About -->
         <a href="#work">Results</a> <!-- Work -->
@@ -63,30 +66,36 @@
 
 <section class="hero editorial">
     <div class="hero-content">
-        <h1>Precision haircuts and color shaped by experience and intention. No rush. No shortcuts.</h1>
 
-        <p>One-on-one appointments in a calm West Palm Beach studio.</p>
+        <h1>
+            <span class="line line-1">Precision haircuts and color</span>
+            <span class="line line-2">Shaped by experience and intention</span>
+            <span class="line line-3">No rush. No shortcuts.</span>
+        </h1>
 
-        <div class="hero-buttons">
-            <a href="tel:15617046226" onclick="gtag('event','call_click');" class="primary">Call: (561) 704-6226</a>
-            <a href="https://search.google.com/local/writereview?placeid=ChIJHWKTm0LX2IgRBeOFu_iyrg4" onclick="gtag('event','review_click');" class="secondary">Leave a Review</a>
+        <div class="hero-meta">
+            <p class="hero-subtext">
+                One-on-one appointments in a private West Palm Beach studio.
+            </p>
+
+            <div class="hero-buttons">
+                <a href="tel:15617046226" onclick="gtag('event','call_click');" class="primary">Call: (561) 704-6226</a>
+                <a href="https://search.google.com/local/writereview?placeid=ChIJHWKTm0LX2IgRBeOFu_iyrg4" onclick="gtag('event','review_click');" class="secondary">Leave a Review</a>
+            </div>
+
+            <!-- UNIFIED TRUST LINE (NOW HERO-ONLY) -->
+            <p class="hero-proof">
+                ★★★★★ 5.0 Google rating • 30+ years behind the chair • 100+ verified clients
+            </p>
         </div>
-    </div>
-</section>
 
-<section class="trust-line">
-    <div class="content-wrapper">
-        <span class="section-subtitle">Studio Philosophy</span>
-        <p>
-            Thirty years behind the chair. Consistent work, calm pacing, and attention to detail in every appointment.
-        </p>
     </div>
 </section>
 
 <section id="about-samir" class="editorial-text about-samir">
     <div class="content-wrapper">
 
-        <span class="section-subtitle">About the Stylist</span>
+        <span class="section-kicker">Behind the Chair</span>
         <div class="about-grid">
 
             <!-- IMAGE -->
@@ -96,17 +105,23 @@
 
             <!-- TEXT -->
             <div class="about-text">
+
                 <h2>Samir</h2>
 
-                <p>Samir is picky, passionate, and takes his time as a stylist who cares more about how something is done than how fast it’s finished.</p>
+                <p class="signature-line">
+                    Owner & stylist<br>
+                    One chair • One client at a time
+                </p>
 
-                <p>He’s focused on the simple things: clean work, honest advice, and hair that grows out properly.</p>
+                <p>Samir works with a simple principle — great hair isn’t rushed, it’s built with intention.</p>
 
-                <p>Every appointment gets his full attention. Whether it’s a quick cleanup or a full color correction, he’s fully in it until it’s right.</p>
+                <p>His focus is clean execution, honest advice, and results that grow out properly over time, not just how they look on day one.</p>
 
-                <p>You’ll usually catch him mid-foils, with a bite of tabbouleh nearby, and a football match on in the background.</p>
+                <p>Every appointment is handled personally. Whether it’s a quick cleanup or a full transformation, the work gets full attention from start to finish.</p>
 
-                <p>Clients usually describe him the same way: someone who remembers your hair, your patterns, and how you like to feel when you leave the chair.</p>
+                <p>Clients often describe him as someone who remembers their hair, their patterns, and how they like to feel when they leave the chair, not just the service they booked.</p>
+
+                <p>Usually mid-foils, with something on in the background, and fully locked into the craft.</p>
             </div>
         </div>
     </div>
@@ -116,16 +131,16 @@
 <section id="work">
 
     <div class="transform-card" id="card-1">
-        <span class="section-subtitle">Results</span>
+        <span class="section-kicker">Transformation Work</span>
         <div class="reveal">
             <div class="comparison-box">
                 <span class="label">Before</span>
-                <img src="assets/images/before_foil.jpg" alt="Before hair color correction in West Palm Beach salon"> 
+                <img src="assets/images/before_foil.webp" alt="Before hair color correction in West Palm Beach salon"> 
             </div>
             
             <div class="comparison-box">
                 <span class="label">After</span>
-                <img src="assets/images/after_foil.jpg" alt="After balayage and dimensional hair color by West Palm Beach stylist"> 
+                <img src="assets/images/after_foil.webp" alt="After balayage and dimensional hair color by West Palm Beach stylist"> 
             </div>
         </div>
         <div class="card-text">
@@ -172,7 +187,7 @@
 
 <section id="testimonials" class="testimonials">
     <div class="content-wrapper">
-        <span class="section-subtitle">Client Experience</span>
+        <span class="section-kicker">Client Experience</span>
         
         <div class="testimonial-grid">
     
@@ -204,46 +219,45 @@
 <section id="services" class="editorial-text">
     <div class="content-wrapper">
 
-        <span class="section-subtitle">Services</span>
+        <span class="section-kicker">Services</span>
         <h2>The Menu</h2>
         <p class="services-intro">
-            Everything from a quick cleanup to a full color transformation — priced honestly, done properly.
+            Every service is shaped with intention. <br>Clean structure, natural movement, and results that hold their form long after you leave the chair.
         </p>
+            <div class="service-grid">
 
-        <div class="service-grid">
+                <div class="service-block">
+                    <h3>Cutting</h3>
+                    <p>Men’s cut — structured, clean, and growth-aware</p>
+                    <p>Women’s cut — shaped for movement and balance</p>
+                </div>
 
-            <div class="service-block">
-                <h3>Cutting</h3>
-                <p>Men's haircut — $30</p>
-                <p>Women's haircut — from $35</p>
-                <p>Bang trim — $15</p>
+                <div class="service-block">
+                    <h3>Color</h3>
+                    <p>Single-process color — refined tone, natural depth</p>
+                    <p>Highlights — hand-placed dimension, soft transition</p>
+                    <p>Toner — tone correction and final balance</p>
+                </div>
+
+                <div class="service-block">
+                    <h3>Styling</h3>
+                    <p>Blow-dry — smooth or natural finish</p>
+                    <p>Heat styling — controlled shape, lasting hold</p>
+                </div>
+
+                <div class="service-block">
+                    <h3>Treatments</h3>
+                    <p>Restorative care — strength and softness restored</p>
+                    <p>Smoothing — reduced frizz, controlled finish</p>
+                </div>
+
             </div>
 
-            <div class="service-block">
-                <h3>Color</h3>
-                <p>One-process color — from $60</p>
-                <p>Partial highlights — from $50</p>
-                <p>Full highlights — from $90</p>
-                <p>Toner — priced separately</p>
-            </div>
-
-            <div class="service-block">
-                <h3>Styling</h3>
-                <p>Blow-dry — from $25</p>
-                <p>Flat iron — from $35</p>
-            </div>
-
-            <div class="service-block">
-                <h3>Treatments</h3>
-                <p>Botox treatment — from $95 <span style="color:#888; font-size:0.9rem;">(formaldehyde-free)</span></p>
-                <p>Keratin smoothing — on request</p>
-            </div>
-        </div>
             <div class="service-block service-block--centered">
                 <h3>The Experience</h3>
                 <p>One chair. One stylist. Full attention.</p>
                 <p>Consultation always included.</p>
-                <p>You'll leave with great hair and probably a snack.</p>
+                <p>You’ll leave with great hair — and probably a snack.</p>
             </div>
     </div>
 </section>
@@ -280,7 +294,7 @@
 </section>
 
 <div class="map">
-    <p class="map-label">Studio Location</p>
+    <span class="section-kicker">Studio Location</span>
     <iframe 
         src="https://www.google.com/maps?q=7000+S+Dixie+Hwy+Suite+7+West+Palm+Beach+FL&output=embed"
         width="100%" 
@@ -300,9 +314,10 @@
 </div>
 
 <footer>
+    <p class="footer-tagline">No rush. No shortcuts.</p>
     © 2026 Hair Design Studio by Samir
     <br>
-<a href="https://www.linkedin.com/in/antoniogartero" target="_blank" class="footer-credit">Built by Antonio G. Artero</a>
+    <a href="https://www.linkedin.com/in/antoniogartero" target="_blank" onclick="gtag('event','portfolio_click');" class="footer-credit">Built by Antonio G. Artero</a>
 </footer>
 
 <script src="script.js"></script>

@@ -27,7 +27,6 @@ html {
     overflow: hidden;
 }
 
-
 /* ================================
    2. DESIGN TOKENS & CSS VARIABLES
 ================================ */
@@ -68,10 +67,31 @@ html {
 h1 {
     font-family: 'Playfair Display', serif;
     font-weight: 400;
-    font-size: clamp(2.5rem, 8vw, 5rem);
-    line-height: 1.1;
+    font-size: clamp(3.2rem, 4.5vw, 6rem);
+    line-height: 1.15;
     letter-spacing: -1px;
     margin-bottom: 2.5rem;
+}
+
+h1 .line {
+    display: block;
+}
+
+/* first line: strong opener */
+h1 .line-1 {
+    margin-bottom: 0.2em;
+    margin-bottom: 0.15em;
+}
+
+/* middle line: slightly lighter visual weight */
+h1 .line-2 {
+    opacity: 0.9;
+    margin-bottom: 0.25em;
+}
+
+/* final line: punch / statement */
+h1 .line-3 {
+    font-style: italic;
 }
 
 h2 {
@@ -93,8 +113,8 @@ p {
 ================================ */
 
 .content-wrapper {
-    padding: 0 var(--space-7);
-    max-width: var(--container-md);
+    padding: 0 clamp(1.5rem, 5vw, 3rem); 
+    max-width: 1100px;
     margin: 0 auto;
 }
 
@@ -105,22 +125,47 @@ section {
     transition: all 0.8s ease;
 }
 
+.about-text,
+.services-intro,
+.trust-line p {
+    max-width: 60ch;
+}
+
 section.in-view {
     opacity: 1;
     transform: translateY(0);
 }
 
-.section-subtitle {
+.section-kicker {
     display: block;
     text-align: center;
-    width: 100%;
-    font-size: 0.7rem;
+    font-size: 0.8rem;
     text-transform: uppercase;
-    letter-spacing: 3px;
-    color: #999;
-    margin-bottom: 3rem;
+    letter-spacing: 3.5px;
+    color: rgba(0, 0, 0, 0.7);
+    margin-bottom: 3.5rem;
+    position: relative;
 }
 
+.section-kicker::before,
+.section-kicker::after {
+    content: "";
+    display: inline-block;
+    width: 40px;
+    height: 1px;
+    background: rgba(0,0,0,0.15);
+    vertical-align: middle;
+    margin: 0 12px;
+}
+
+.section-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 3rem;
+    font-weight: 400;
+    text-align: center;
+    margin-bottom: 2.5rem;
+    letter-spacing: -0.5px;
+}
 
 /* ================================
    5. BUTTONS
@@ -169,7 +214,7 @@ section.in-view {
     font-size: 0.8rem;
     text-transform: uppercase;
     letter-spacing: 1px;
-    border-bottom: 1px solid #111;
+    border-bottom: 1px solid rgba(201, 97, 207, 0.5);
     padding-bottom: 5px;
     transition: opacity 0.3s ease;
 }
@@ -218,6 +263,25 @@ header {
     font-weight: 500;
 }
 
+.logo-name {
+    display: block;
+    font-family: 'Playfair Display', serif;
+    font-size: 2rem;
+    line-height: 1;
+    letter-spacing: 0.5px;
+}
+
+.logo-sub {
+    display: block;
+    font-family: 'Inter', sans-serif;
+    font-size: 0.80rem;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    color: #999;
+    margin-top: 3px;
+}
+
+
 .logo a {
     text-decoration: none;
     color: inherit;
@@ -236,6 +300,7 @@ nav a {
     text-transform: uppercase;
     letter-spacing: 1px;
     position: relative;
+
 }
 
 nav a::after {
@@ -245,7 +310,7 @@ nav a::after {
     height: 1px;
     bottom: -4px;
     left: 0;
-    background: black;
+    background: rgba(201, 97, 207, 0.5);
     transition: width 0.3s ease;
 }
 
@@ -267,6 +332,7 @@ nav a:hover::after {
     background: #fff;
     overflow: hidden;
     opacity: 1;
+    padding-top: 6vh;
 }
 
 .hero::before {
@@ -319,105 +385,94 @@ nav a:hover::after {
     position: relative;
     z-index: 2;
     padding-left: var(--space-9);
-    max-width: var(--container-md);
+    animation: fadeUp 0.9s ease-out both;
+}
+
+@keyframes fadeUp {
+    from {
+        opacity: 0;
+        transform: translateY(12px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.hero-subtext {
+    font-size: 1.3rem;
+    line-height: 1.7;
+    max-width: 50ch;
+    opacity: 0.75;
+}
+
+.hero-content h1 {
+    margin-bottom: 2.5rem;
+}
+
+.hero-meta {
+    margin-top: 3rem;
 }
 
 .hero-buttons {
-    margin-top: 4rem;
+    margin-top: 1.5rem;
     display: flex;
     gap: 12px;
     flex-wrap: wrap;
+    align-items: center;
 }
 
 .hero-buttons a {
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    padding: 14px 28px;
+    padding: 16px 32px;
     border-radius: 999px;
-    font-size: 0.78rem;
+    font-size: 1rem;
     text-transform: uppercase;
-    letter-spacing: 1.5px;
+    letter-spacing: 1.6px;
     text-decoration: none;
-    transition: all 0.35s ease;
+    transition: all 0.3s ease;
     border: 1px solid transparent;
-    position: relative;
 }
 
 .hero-buttons .primary {
     background: #111;
     color: #fff;
 }
-
 .hero-buttons .primary:hover {
-    background: #000;
     transform: translateY(-1px);
+    box-shadow: 0 10px 25px rgba(0,0,0,0.10);
 }
 
 .hero-buttons .secondary {
     background: transparent;
+    transform: scale(0.98);
     color: #111;
     border: 1px solid rgba(0,0,0,0.2);
 }
 
 .hero-buttons .secondary:hover {
-    border-color: rgba(0,0,0,0.5);
-    background: rgba(0,0,0,0.03);
-    transform: translateY(-1px);
+    background: rgba(0,0,0,0.04);
+    border-color: rgba(0,0,0,0.4);
 }
 
-
-/* ================================
-   8. TRUST LINE (TAGLINE BAR)
-================================ */
-
-.trust-line {
-    padding: 3rem 0;
-    text-align: center;
-    background: #fff;
-    border-top: 1px solid rgba(0,0,0,0.06);
-    border-bottom: 1px solid rgba(0,0,0,0.06);
-}
-
-.trust-line p {
-    font-size: 1rem;
-    line-height: 1.6;
+.hero-proof {
+    margin-top: 1.5rem;
+    font-size: 0.9rem;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
     color: #666;
-    font-weight: 400;
-    max-width: 600px;
-    margin: 0 auto;
-}
-
-.trust-line .content-wrapper {
-    max-width: 720px;
-    margin: 0 auto;
-}
-
-.trust-line::before {
-    content: "";
-    display: block;
-    width: 60px;
-    height: 1px;
-    background: rgba(0,0,0,0.15);
-    margin: 0 auto 2.5rem;
-}
-
-.trust-line::after {
-    content: "";
-    display: block;
-    width: 60px;
-    height: 1px;
-    background: rgba(0,0,0,0.15);
-    margin: 2.5rem auto 0;
+    opacity: 0.8;
+    animation: fadeUp 0.9s ease-out 0.4s both;
 }
 
 
 /* ================================
    9. BEFORE/AFTER TRANSFORM CARDS
 ================================ */
-
 .transform-card {
-    margin: 0 auto var(--space-9);
+    margin: 0 auto 10rem;
 }
 
 .transform-card:hover {
@@ -506,8 +561,9 @@ nav a:hover::after {
 .comparison-box:last-child .label  { right: 30px; }
 
 .card-text {
-    padding: var(--space-8) var(--space-7) 0;
-    max-width: var(--container-sm);
+    padding: var(--space-5) var(--space-7) 0;
+    max-width: var(--container-md);
+    margin-left: var(--space-9)
 }
 
 .transform-card:last-child {
@@ -519,7 +575,6 @@ nav a:hover::after {
 /* ================================
    10. SERVICES SECTION
 ================================ */
-
 #services {
     background: #ffffff;
     text-align: center;
@@ -539,7 +594,7 @@ nav a:hover::after {
     max-width: 650px;
     margin: 1.5rem auto 3rem;
     color: #555;
-    padding: 1.5 rem 0;
+    padding: 1.5rem 0;
 }
 
 .service-grid {
@@ -555,6 +610,11 @@ nav a:hover::after {
     background: transparent;
     padding: 0;
     box-shadow: none;
+    transition: transform 0.3s ease;
+}
+
+.service-block:hover {
+    transform: translateY(-5px);
 }
 
 .service-block h3 {
@@ -569,8 +629,20 @@ nav a:hover::after {
     font-size: 1rem;
     color: #444;
     margin-bottom: 0.7rem;
-    padding-left: 0;
     position: relative;
+}
+
+.service-block::before {
+    content: "";
+    display: block;
+    width: 40px;
+    height: 1px;
+    background: rgba(0,0,0,0.12);
+    margin-bottom: 1.2rem;
+
+    position: relative;
+    left: 50%;
+    transform: translateX(-50%);
 }
 
 .service-block--centered {
@@ -579,15 +651,23 @@ nav a:hover::after {
     text-align: center;
 }
 
-
 /* ================================
    11. ABOUT SECTION
 ================================ */
+#about-samir .content-wrapper {
+    max-width: 1300px;
+}
+
+#about-samir {
+    padding: 9rem 0;
+}
 
 #about-samir p {
+    font-size: 1.25rem;
+    line-height: 1.75;
     max-width: 720px;
     margin: 0 auto 1.5rem;
-    color: #444;
+    color: #383838;
 }
 
 #about-samir p:first-of-type {
@@ -597,15 +677,15 @@ nav a:hover::after {
 
 .about-samir .about-grid {
     display: grid;
-    grid-template-columns: 1fr 1.2fr;
-    gap: 5rem;
+    grid-template-columns: 1.5fr 1.7fr;
+    gap: 6rem;
     align-items: center;
     margin-top: 3rem;
 }
 
 .about-image {
     width: 100%;
-    height: 640px;
+    height: 820px;
     overflow: hidden;
     border-radius: 18px;
     box-shadow: var(--shadow-medium);
@@ -617,7 +697,7 @@ nav a:hover::after {
     height: 100%;
     object-fit: cover;
     object-position: center 10%;
-    transform: scale(1.02);
+    transform: scale(1.07);
     transition: transform 0.6s ease;
 }
 
@@ -626,16 +706,36 @@ nav a:hover::after {
 }
 
 .about-text {
-    max-width: 720px;
+    max-width: 780px;
 }
 
 .about-text h2 {
+    font-size: 3rem;
+    font-weight: 400;
+    line-height: 1.1;
     margin-bottom: 1.5rem;
+    letter-spacing: -0.5px;
+    font-family: 'Playfair Display', serif;
+}
+
+.signature-line {
+    font-size: 0.72rem;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    color: rgba(0, 0, 0, 0.55);
+    margin: 0.6rem 0 2.4rem;
+    line-height: 1.6;
 }
 
 .about-text p {
-    margin-bottom: 1.4rem;
-    max-width: 60ch;
+    margin-bottom: 1.6rem;
+    max-width: 62ch;
+    line-height: 1.75;
+}
+
+.about-text p strong {
+    font-weight: 500;
+    color: #111;
 }
 
 
@@ -660,15 +760,15 @@ nav a:hover::after {
     padding: 0 6vw;
 }
 
-/* Featured testimonial */
+
 .testimonial-featured {
     grid-column: 1 / -1;
     width: 100%;
-    margin: 0 auto 2rem;
-    padding: var(--space-7) var(--space-7);
+    max-width: 900px;
+    margin: 0 auto 3rem;
+    padding: 2rem 2.2rem;
     box-shadow: var(--shadow-medium);
     background: #fff;
-    border-radius: 20px;
     text-align: center;
 }
 
@@ -688,18 +788,17 @@ nav a:hover::after {
     color: #555;
 }
 
-/* Testimonial grid */
 .testimonial-grid {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
-    gap: 2rem;
+    gap: 2.5rem;
     max-width: 1400px;
     margin: 0 auto;
 }
 
 .testimonial-item {
     background: #fff;
-    padding: 2.5rem;
+    padding: 2rem 2.2rem;
     border-radius: 16px;
     text-align: left;
     box-shadow: var(--shadow-soft);
@@ -758,12 +857,21 @@ nav a:hover::after {
 .contact-right h3 {
     font-family: 'Playfair Display', serif;
     font-weight: 400;
-    font-size: 2.5rem;
+    font-size: 2.2rem;
     margin-bottom: 1rem;
+}
+
+.contact-left p:first-of-type {
+    font-weight: 500;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    font-size: 0.85rem;
+    color: #666;
 }
 
 .buttons {
     justify-content: center;
+        margin-top: 2rem;
 }
 
 
@@ -773,7 +881,7 @@ nav a:hover::after {
 
 .map {
     padding-bottom: 6rem;
-    padding: 0;
+    padding: 0 6vw 6rem;
     margin-top: 0;
     background: #fafafa;
 }
@@ -789,12 +897,12 @@ nav a:hover::after {
 
 .map iframe {
     width: 100%;
-    height: 420px;
+    height: 520px;
     border: none;
     border-radius: 20px;
     display: block;
     box-shadow: var(--shadow-medium);
-    filter: grayscale(1) contrast(1.05);
+    filter: none; /* ← this is the fix */
     transition: all 0.5s ease;
 }
 
@@ -854,9 +962,21 @@ footer::before {
     transition: color 0.3s ease;
 }
 
+.footer-tagline {
+    font-family: 'Playfair Display', serif;
+    font-style: italic;
+    font-size: 1.1rem;
+    color: #bbb;
+    margin-bottom: 1.5rem;
+    position: relative;
+    z-index: 1;
+}
+
 .footer-credit:hover {
     color: #999;
 }
+
+
 
 /* ================================
    16. RESPONSIVE — MOBILE (≤768px)
@@ -911,11 +1031,11 @@ footer::before {
 
     .service-grid {
         grid-template-columns: 1fr;
-        gap: 0.1rem;
+        gap: 2.5rem;
     }
 
     .service-block {
-        padding: 2rem;
+        transform: none !important;
     }
 
     .testimonial-grid {
@@ -931,15 +1051,9 @@ footer::before {
         gap: 2rem;
     }
 
-    @media (max-width: 768px) {
-    .map iframe {
-        filter: grayscale(0);
-        transform: none;
-    }
-    
     .map iframe:hover {
         transform: none;
     }
-    }
+
 
 }

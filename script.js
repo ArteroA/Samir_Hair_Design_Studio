@@ -70,3 +70,30 @@ const observer = new IntersectionObserver((entries) => {
 });
 
 sections.forEach(section => observer.observe(section));
+
+// ===============================
+// SLIDER REVEAL
+// ===============================
+document.querySelectorAll('.slider-reveal').forEach(slider => {
+    let dragging = false;
+
+    function setPosition(x) {
+        const rect = slider.getBoundingClientRect();
+        let pct = ((x - rect.left) / rect.width) * 100;
+        pct = Math.min(Math.max(pct, 2), 98);
+
+        slider.querySelector('.slider-before').style.clipPath = 
+            `inset(0 ${100 - pct}% 0 0)`;
+        slider.querySelector('.slider-handle').style.left = `${pct}%`;
+    }
+
+    // Mouse
+    slider.addEventListener('mousedown', e => { dragging = true; setPosition(e.clientX); });
+    window.addEventListener('mousemove', e => { if (dragging) setPosition(e.clientX); });
+    window.addEventListener('mouseup', () => dragging = false);
+
+    // Touch
+    slider.addEventListener('touchstart', e => { dragging = true; setPosition(e.touches[0].clientX); });
+    window.addEventListener('touchmove', e => { if (dragging) setPosition(e.touches[0].clientX); });
+    window.addEventListener('touchend', () => dragging = false);
+});
