@@ -6,7 +6,7 @@
     <meta name="description" content="Private hair salon in West Palm Beach. Precision cuts, color, and highlights by Samir — by appointment only. Call (561) 704-6226.">
     <meta property="og:title" content="Hair Design Studio by Samir">
     <meta property="og:description" content="Precision haircuts and color in West Palm Beach">
-    <meta property="og:image" content="https://hairdesignstudiobysamir.com/assets/images/samir-storefront.png"> 
+    <meta property="og:image" content="https://hairdesignstudiobysamir.com/assets/images/samir-storefront.webp"> 
     <meta property="og:url" content="https://hairdesignstudiobysamir.com">
     <meta property="og:type" content="website">
     <title>Hair Design Studio by Samir</title>
@@ -19,7 +19,7 @@
         "@context": "https://schema.org",
         "@type": "HairSalon",
         "name": "Hair Design Studio by Samir",
-        "image": "https://hairdesignstudiobysamir.com/assets/images/samir-storefront.png",
+        "image": "https://hairdesignstudiobysamir.com/assets/images/samir-storefront.webp",
         "address": {
             "@type": "PostalAddress",
             "streetAddress": "7000 S Dixie Hwy, Suite 7",
@@ -37,12 +37,12 @@
     </script>
 
     <!-- Google Analytics -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXX"></script>   <!-- After creating doman find G-ID to track analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-TDMB52NQW2"></script> 
     <script>
         window.dataLayer = window.dataLayer || [];
         function gtag(){dataLayer.push(arguments);}
         gtag('js', new Date());
-        gtag('config', 'G-XXXXXXX'); /* After creating doman find G-ID to track analytics */
+        gtag('config', 'G-TDMB52NQW2'); 
     </script>
 </head>
 <body>
@@ -62,6 +62,11 @@
         <a href="#contact">Visit</a> <!-- Contact -->
         
     </nav>
+    <button class="hamburger" aria-label="Menu">
+        <span></span>
+        <span></span>
+        <span></span>
+    </button>
 </header>
 
 <section class="hero editorial">
@@ -90,6 +95,11 @@
         </div>
 
     </div>
+    <a href="#about-samir" class="scroll-indicator" aria-label="Scroll down">
+        <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+            <path d="M8 3L8 13M8 13L4 9M8 13L12 9" stroke="#111" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+    </a>
 </section>
 
 <section id="about-samir" class="editorial-text about-samir">
@@ -130,59 +140,66 @@
 
 <section id="work">
 
+    <!-- CARD 1 — SLIDER REVEAL -->
     <div class="transform-card" id="card-1">
         <span class="section-kicker">Transformation Work</span>
-        <div class="reveal">
-            <div class="comparison-box">
-                <span class="label">Before</span>
-                <img src="assets/images/before_foil.webp" alt="Before hair color correction in West Palm Beach salon"> 
+        <div class="slider-reveal">
+            <div class="slider-after">
+                <img src="assets/images/after_foil.webp" alt="After balayage and dimensional hair color by West Palm Beach stylist">
             </div>
-            
-            <div class="comparison-box">
-                <span class="label">After</span>
-                <img src="assets/images/after_foil.webp" alt="After balayage and dimensional hair color by West Palm Beach stylist"> 
+            <div class="slider-before">
+                <img src="assets/images/before_foil.webp" alt="Before hair color correction in West Palm Beach salon">
             </div>
+            <div class="slider-handle">
+                <div class="slider-line"></div>
+                <div class="slider-button">&#8596;</div>
+            </div>
+            <span class="label-before">Before</span>
+            <span class="label-after">After</span>
         </div>
         <div class="card-text">
-        <h2>Highlights & Color</h2>
-        <p>Foil highlights placed by hand — built to move naturally and grow out clean.</p>
-      </div>
+            <h2>Highlights & Color</h2>
+            <p>Foil highlights placed by hand — built to move naturally and grow out clean.</p>
+        </div>
     </div>
 
+    <!-- CARD 2 — SLIDER REVEAL -->
     <div class="transform-card" id="card-2">
-        <div class="reveal">
-            <div class="comparison-box">
-                <span class="label">Before</span>
-                <img src="assets/images/before2.png" alt="Before precision haircut at West Palm Beach private hair studio"> 
-            </div> 
-            <div class="comparison-box">
-                <span class="label">After</span>
-                <img src="assets/images/after2.png" alt="Precision layered haircut styled in private salon West Palm Beach">
+        <div class="slider-reveal">
+            <div class="slider-after">
+                <img src="assets/images/after_color.webp" alt="Precision layered haircut styled in private salon West Palm Beach">
             </div>
+            <div class="slider-before">
+                <img src="assets/images/before_color.webp" alt="Before precision haircut at West Palm Beach private hair studio">
+            </div>
+            <div class="slider-handle">
+                <div class="slider-line"></div>
+                <div class="slider-button">&#8596;</div>
+            </div>
+            <span class="label-before">Before</span>
+            <span class="label-after">After</span>
         </div>
         <div class="card-text">
-            <h2>Structural Cut & Shape</h2>
-            <p>Precision cutting based on how the hair falls — not just how it looks when finished.</p>
+            <h2>Full Color Transformation</h2>
+            <p>Root to end color — rich, saturated, and finished with movement and shine.</p>
         </div>
     </div>
 
+<!--     CARD 3 — TWO FINISHED SHOTS, NO REVEAL 
     <div class="transform-card" id="card-3">
-        <div class="reveal">
-            <div class="comparison-box">
-                <span class="label">Before</span>
-                <img src="assets/images/before3.jpg" alt="Before full hair color correction transformation at hair salon for men and women."> 
+        <div class="double-shot">
+            <div class="double-shot-image">
+                <img src="assets/images/after_foil.webp" alt="Finished hair color result at Hair Design Studio by Samir">
             </div>
-            <div class="comparison-box">
-                <span class="label">After</span>
-                <img src="assets/images/after3.jpeg" alt="Full hair color correction transformation with restored tone and shine">
+            <div class="double-shot-image">
+                <img src="assets/images/before_foil.webp" alt="Finished haircut result at West Palm Beach private hair studio">
             </div>
         </div>
         <div class="card-text">
-            <h2>Full Color Correction</h2>
-            <p>Restoring tone, depth, and balance when previous color has gone too far.</p>
+            <h2>The Work</h2>
+            <p>Two different clients. The same attention to detail.</p>
         </div>
-    </div>
-
+    </div> -->
 </section>
 
 <section id="testimonials" class="testimonials">
@@ -334,6 +351,8 @@
         });
     });
 </script>
+
+<div class="nav-overlay"></div>
 
 </body>
 </html>

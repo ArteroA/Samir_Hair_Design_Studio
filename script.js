@@ -1,3 +1,8 @@
+document.addEventListener('DOMContentLoaded', () => {
+
+// ===============================
+// CONSOLE SIGNATURE
+// ===============================
 console.log('%c Built by Antonio G. Artero ', 'background: #111; color: #fff; padding: 6px 12px; font-size: 12px; letter-spacing: 2px;');
 console.log('%c https://www.linkedin.com/in/antoniogartero ', 'color: #999; font-size: 11px; letter-spacing: 1px;');
 
@@ -20,43 +25,36 @@ document.querySelectorAll('a[href^="#"], #logo-link').forEach(anchor => {
     });
 });
 
-
-
 // ===============================
-// PARALLAX ENGINE (UNCHANGED EFFECT)
+// HAMBURGER MENU
 // ===============================
-let ticking = false;
+const hamburger = document.querySelector('.hamburger');
+const nav = document.querySelector('nav');
+const overlay = document.querySelector('.nav-overlay');
 
-function updateParallax() {
-    const images = document.querySelectorAll(".comparison-box img");
-
-    const windowHeight = window.innerHeight;
-
-    images.forEach(img => {
-        const rect = img.getBoundingClientRect();
-
-        if (rect.top < windowHeight && rect.bottom > 0) {
-            const shift = (rect.top - windowHeight / 2) * 0.1;
-            img.style.transform = `translateY(${shift}px)`;
-        }
-    });
-
-    ticking = false;
-}
-
-window.addEventListener("scroll", () => {
-    if (!ticking) {
-        window.requestAnimationFrame(updateParallax);
-        ticking = true;
-    }
+hamburger.addEventListener('click', () => {
+    hamburger.classList.toggle('open');
+    nav.classList.toggle('open');
+    overlay.classList.toggle('open');
 });
 
-window.addEventListener("load", updateParallax);
+document.querySelectorAll('nav a').forEach(link => {
+    link.addEventListener('click', () => {
+        hamburger.classList.remove('open');
+        nav.classList.remove('open');
+        overlay.classList.remove('open');
+    });
+});
+
+overlay.addEventListener('click', () => {
+    hamburger.classList.remove('open');
+    nav.classList.remove('open');
+    overlay.classList.remove('open');
+});
 
 // ===============================
 // SCROLL BREATHING SYSTEM
 // ===============================
-
 const sections = document.querySelectorAll("section");
 
 const observer = new IntersectionObserver((entries) => {
@@ -77,23 +75,43 @@ sections.forEach(section => observer.observe(section));
 document.querySelectorAll('.slider-reveal').forEach(slider => {
     let dragging = false;
 
+    function getLimits() {
+        if (slider.closest('#card-1')) return { min: 17, max: 72 };
+        if (slider.closest('#card-2')) return { min: 32, max: 59 };
+        return { min: 15, max: 85 };
+    }
+
     function setPosition(x) {
         const rect = slider.getBoundingClientRect();
+        const { min, max } = getLimits();
         let pct = ((x - rect.left) / rect.width) * 100;
-        pct = Math.min(Math.max(pct, 2), 98);
-
-        slider.querySelector('.slider-before').style.clipPath = 
+        pct = Math.min(Math.max(pct, min), max);
+        slider.querySelector('.slider-before').style.clipPath =
             `inset(0 ${100 - pct}% 0 0)`;
         slider.querySelector('.slider-handle').style.left = `${pct}%`;
     }
 
-    // Mouse
     slider.addEventListener('mousedown', e => { dragging = true; setPosition(e.clientX); });
     window.addEventListener('mousemove', e => { if (dragging) setPosition(e.clientX); });
     window.addEventListener('mouseup', () => dragging = false);
 
-    // Touch
     slider.addEventListener('touchstart', e => { dragging = true; setPosition(e.touches[0].clientX); });
     window.addEventListener('touchmove', e => { if (dragging) setPosition(e.touches[0].clientX); });
     window.addEventListener('touchend', () => dragging = false);
+});
+
+}); // closes DOMContentLoaded
+
+// ===============================
+// SCROLL DEPTH TRACKING
+// ===============================
+let tracked = {};
+window.addEventListener('scroll', () => {
+    const pct = Math.round((window.scrollY / (document.body.scrollHeight - window.innerHeight)) * 100);
+    [25, 50, 75, 90].forEach(milestone => {
+        if (pct >= milestone && !tracked[milestone]) {
+            tracked[milestone] = true;
+            gtag('event', 'scroll_depth', { depth: milestone });
+        }
+    });
 });

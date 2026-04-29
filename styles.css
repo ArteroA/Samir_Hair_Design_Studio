@@ -480,69 +480,94 @@ nav a:hover::after {
     transition: transform 0.4s ease;
 }
 
-.reveal {
+
+
+.transform-card:last-child {
+    margin-bottom: 0;
+}
+
+/* ================================
+   9B. SLIDER REVEAL
+================================ */
+
+.slider-reveal {
+    position: relative;
     width: 100vw;
     height: 85vh;
-    position: relative;
     left: 50%;
-    right: 50%;
     margin-left: -50vw;
-    margin-right: -50vw;
-    display: flex;
-    gap: 0;
-    background-color: #ffffff;
     overflow: hidden;
+    cursor: col-resize;
+    user-select: none;
 }
 
-.comparison-box {
-    position: relative;
-    flex: 1;
-    height: 100%;
-    overflow: hidden;
-    transition: flex 0.8s cubic-bezier(0.2, 1, 0.3, 1);
-    will-change: flex;
-}
-
-.reveal img {
+.slider-after,
+.slider-before {
     position: absolute;
     top: 0;
-    width: 100vw;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+.slider-after img,
+.slider-before img {
+    width: 100%;
     height: 100%;
     object-fit: cover;
-    transition: all 0.8s cubic-bezier(0.2, 1, 0.3, 1);
+    pointer-events: none;
 }
 
-.comparison-box:first-child img {
-    left: 0;
-    object-position: left center;
+/* Before sits on top, clipped to left half */
+.slider-before {
+    clip-path: inset(0 50% 0 0);
+    z-index: 2;
 }
 
-.comparison-box:last-child img {
-    right: 0;
-    object-position: right center;
+.slider-handle {
+    position: absolute;
+    top: 0;
+    left: 50%;
+    width: 3px;
+    height: 100%;
+    z-index: 10;
+    transform: translateX(-50%);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    pointer-events: none;
 }
 
-.comparison-box:first-child {
-    border-right: 3px solid rgb(255, 255, 255);
+.slider-line {
+    position: absolute;
+    top: 0;
+    width: 2px;
+    height: 100%;
+    background: rgba(255,255,255,0.8);
 }
 
-.comparison-box:hover {
-    flex: 2.2;
+.slider-button {
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    background: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.1rem;
+    color: #111;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.15);
+    z-index: 11;
+    position: relative;
 }
+/* Card 2 — Color */
+#card-2 .slider-before img { object-position: left center; }
+#card-2 .slider-after img  { object-position: center 20%; }
 
-/* Card 1 — Dimensional Color */
-#card-1 .comparison-box:first-child img { object-position: center; }
-#card-1 .comparison-box:last-child img  { object-position: center 20%;}
-
-/* Card 2 — Structural Cut */
-#card-2 .comparison-box:first-child img  { object-position: left 0%}
-#card-2 .comparison-box:last-child img   { object-position: left 0%}
-
-/* Card 3 — Full Color Correction */
-#card-3 .comparison-box:first-child img  { object-position: left 0%}
-#card-3 .comparison-box:last-child img   { object-position: left 0%}
-
-.label {
+/* Labels */
+.label-before,
+.label-after {
     position: absolute;
     bottom: 30px;
     padding: 8px 20px;
@@ -552,25 +577,53 @@ nav a:hover::after {
     color: #fff;
     background: rgba(0, 0, 0, 0.55);
     backdrop-filter: blur(5px);
-    z-index: 10;
     border: 1px solid rgba(255,255,255,0.35);
+    z-index: 10;
     pointer-events: none;
 }
 
-.comparison-box:first-child .label { left: 30px; }
-.comparison-box:last-child .label  { right: 30px; }
+.label-before { left: 30px; z-index: 3; }
+.label-after  { right: 30px; }
 
 .card-text {
     padding: var(--space-5) var(--space-7) 0;
     max-width: var(--container-md);
-    margin-left: var(--space-9)
-}
-
-.transform-card:last-child {
-    margin-bottom: 0;
+    margin-left: var(--space-9);
 }
 
 
+/* ================================
+   9C. DOUBLE SHOT (TWO FINISHED IMAGES)
+================================ */
+
+.double-shot {
+    width: 100vw;
+    height: 85vh;
+    position: relative;
+    left: 50%;
+    margin-left: -50vw;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 3px;
+    overflow: hidden;
+    background: #fff;
+}
+
+.double-shot-image {
+    overflow: hidden;
+    position: relative;
+}
+
+.double-shot-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.6s ease;
+}
+
+.double-shot-image:hover img {
+    transform: scale(1.03);
+}
 
 /* ================================
    10. SERVICES SECTION
@@ -886,18 +939,10 @@ nav a:hover::after {
     background: #fafafa;
 }
 
-.map-label {
-    text-align: center;
-    font-size: 0.75rem;
-    letter-spacing: 2px;
-    text-transform: uppercase;
-    color: #999;
-    margin-bottom: 1rem;
-}
 
 .map iframe {
     width: 100%;
-    height: 520px;
+    height: 480px;
     border: none;
     border-radius: 20px;
     display: block;
@@ -976,7 +1021,61 @@ footer::before {
     color: #999;
 }
 
+.scroll-indicator {
+    display: none;
+}
 
+.hamburger {
+    display: none;
+    flex-direction: column;
+    gap: 5px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 4px;
+    z-index: 200;
+}
+
+.hamburger span {
+    display: block;
+    width: 24px;
+    height: 1.5px;
+    background: #111;
+    transition: all 0.3s ease;
+    transform-origin: center;
+}
+
+/* Animate to X when open */
+.hamburger.open span:nth-child(1) {
+    transform: translateY(6.5px) rotate(45deg);
+}
+.hamburger.open span:nth-child(2) {
+    opacity: 0;
+}
+.hamburger.open span:nth-child(3) {
+    transform: translateY(-6.5px) rotate(-45deg);
+}
+
+.nav-overlay {
+    display: none;
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,0.3);
+    z-index: 140;
+    opacity: 0;
+    transition: opacity 0.4s ease;
+}
+
+.nav-overlay.open {
+    display: block;
+    opacity: 1;
+    right: 45vw; /* stops the overlay where the nav starts */
+    width: calc(100% - 45vw);
+}
+
+nav {
+    z-index: 160;
+}
 
 /* ================================
    16. RESPONSIVE — MOBILE (≤768px)
@@ -988,19 +1087,110 @@ footer::before {
         padding: 1rem 1.5rem;
     }
 
+    .hamburger {
+        display: flex;
+        z-index: 200;
+    }
+
     nav {
-        display: none;
+        display: flex;
+        flex-direction: column;
+        position: fixed;
+        top: 0;
+        right: 0;
+        width: 45vw;
+        height: 100vh;
+        background: rgba(255,255,255,0.97);
+        backdrop-filter: blur(12px);
+        padding: 6rem 2rem 3rem;
+        gap: 2rem;
+        z-index: 160;
+        transform: translateX(100%);
+        transition: transform 0.4s cubic-bezier(0.2, 1, 0.3, 1);
+        box-shadow: -10px 0 40px rgba(0,0,0,0.08);
+    }
+
+    nav.open {
+        transform: translateX(0);
+    }
+
+    nav a {
+        margin-left: 0;
+        font-size: 1.1rem;
+        letter-spacing: 2px;
+    }
+
+
+    .hero {
+        height: 100svh;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        align-items: center;
+        padding: 0;
     }
 
     .hero-content {
-        padding: 0 1.5rem;
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        padding: 7rem 1.5rem 0;
+        width: 100%;
     }
 
-    .sticky-call {
-        bottom: 16px;
-        right: 16px;
-        padding: 12px 22px;
+    h1 {
+        font-size: 1.8rem;
+        line-height: 1.2;
+        margin-bottom: 1rem;
+    }
+
+    .hero-subtext {
+        font-size: 0.95rem;
+        line-height: 1.5;
+    }
+
+    .hero-meta {
+        margin-top: 1rem;
+        width: 100%;
+    }
+
+    .hero-buttons {
+        flex-direction: row;
+        flex-wrap: wrap;
+        gap: 8px;
+    }
+
+    .hero-buttons a {
+        padding: 11px 20px;
         font-size: 0.75rem;
+        letter-spacing: 1px;
+    }
+
+    .hero-proof {
+        font-size: 0.65rem;
+        letter-spacing: 0.8px;
+        line-height: 1.6;
+    }
+
+    .scroll-indicator {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 40px;
+        height: 40px;
+        border-radius: 50%;
+        border: 1px solid rgba(0,0,0,0.15);
+        margin: 0 auto 2.5rem;
+        text-decoration: none;
+        animation: bounce 2s ease-in-out infinite;
+        flex-shrink: 0;
+        align-self: center;
+    }
+    
+    @keyframes bounce {
+        0%, 100% { transform: translateY(0); }
+        50%       { transform: translateY(6px); }
     }
 
     section {
@@ -1015,7 +1205,12 @@ footer::before {
         padding: 0 1.5rem;
     }
 
-    .reveal {
+    .slider-reveal {
+        height: auto;
+        aspect-ratio: 4 / 3;
+    }
+
+    .double-shot {
         height: auto;
         aspect-ratio: 4 / 3;
     }
@@ -1026,7 +1221,7 @@ footer::before {
     }
 
     .about-image {
-        height: 360px;
+        height: 600px;
     }
 
     .service-grid {
