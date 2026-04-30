@@ -115,3 +115,10 @@ window.addEventListener('scroll', () => {
         }
     });
 });
+
+
+if (window.innerWidth > 768) {
+    document.querySelectorAll('.service-block').forEach(el => {
+        el.setAttribute('open', true);
+    });
+}

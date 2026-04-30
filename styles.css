@@ -56,7 +56,9 @@ html {
     --shadow-medium: 0 15px 40px rgba(0,0,0,0.08);
 
     /* Section rhythm */
-    --section-y: var(--space-10);
+    --section-y: 3.5rem;
+
+    --nav-offset: 90px;
 }
 
 
@@ -123,6 +125,7 @@ section {
     opacity: 0;
     transform: translateY(20px);
     transition: all 0.8s ease;
+    scroll-margin-top: var(--nav-offset);
 }
 
 .about-text,
@@ -266,7 +269,7 @@ header {
 .logo-name {
     display: block;
     font-family: 'Playfair Display', serif;
-    font-size: 2rem;
+    font-size: 3rem;
     line-height: 1;
     letter-spacing: 0.5px;
 }
@@ -274,11 +277,12 @@ header {
 .logo-sub {
     display: block;
     font-family: 'Inter', sans-serif;
-    font-size: 0.80rem;
+    font-size: 1.2rem;
     text-transform: uppercase;
     letter-spacing: 3px;
     color: #999;
     margin-top: 3px;
+
 }
 
 
@@ -472,7 +476,7 @@ nav a:hover::after {
    9. BEFORE/AFTER TRANSFORM CARDS
 ================================ */
 .transform-card {
-    margin: 0 auto 10rem;
+    margin: 0 auto 3.5rem;
 }
 
 .transform-card:hover {
@@ -712,7 +716,7 @@ nav a:hover::after {
 }
 
 #about-samir {
-    padding: 9rem 0;
+    padding: 4rem 0;
 }
 
 #about-samir p {
@@ -738,7 +742,7 @@ nav a:hover::after {
 
 .about-image {
     width: 100%;
-    height: 820px;
+    height: 750px;
     overflow: hidden;
     border-radius: 18px;
     box-shadow: var(--shadow-medium);
@@ -1077,14 +1081,52 @@ nav {
     z-index: 160;
 }
 
+@media (min-width: 769px) {
+
+    .hero {
+        padding-top: 28vh;
+        align-items: flex-start;
+    }
+
+    details.service-block {
+        display: block;
+    }
+
+    details.service-block[open] summary {
+        display: none;
+    }
+
+    details.service-block summary {
+        display: none;
+    }
+
+    details.service-block .details-content {
+        display: block;
+    }
+}
+
 /* ================================
    16. RESPONSIVE — MOBILE (≤768px)
 ================================ */
 
 @media (max-width: 768px) {
 
+    :root {
+        --nav-offset: 70px;
+    }
+
     header {
         padding: 1rem 1.5rem;
+    }
+
+    .logo-name {
+        font-size: 1.7rem;
+        line-height: 1;
+    }
+
+    .logo-sub {
+        font-size: 0.65rem;
+        letter-spacing: 2px;
     }
 
     .hamburger {
@@ -1140,13 +1182,13 @@ nav {
     }
 
     h1 {
-        font-size: 1.8rem;
+        font-size: 1.3rem;
         line-height: 1.2;
         margin-bottom: 1rem;
     }
 
     .hero-subtext {
-        font-size: 0.95rem;
+        font-size: 0.75rem;
         line-height: 1.5;
     }
 
@@ -1168,9 +1210,12 @@ nav {
     }
 
     .hero-proof {
-        font-size: 0.65rem;
-        letter-spacing: 0.8px;
-        line-height: 1.6;
+        margin-top: 1.5rem;
+        font-size: 0.85rem;
+        letter-spacing: 1.2px;
+        text-transform: uppercase;
+        color: #666;
+        opacity: 0.8;
     }
 
     .scroll-indicator {
@@ -1215,13 +1260,35 @@ nav {
         aspect-ratio: 4 / 3;
     }
 
+    .card-text {
+        margin-left: 0;
+        margin-right: 0;
+        text-align: left;
+    }
+    
     .about-samir .about-grid {
         grid-template-columns: 1fr;
         gap: 2.5rem;
     }
 
     .about-image {
-        height: 600px;
+        height: 500px;
+    }
+
+    .about-text h2 {
+        font-size: 3rem;
+        font-weight: 400;
+    }
+
+    #about-samir .signature-line {
+        font-size: 0.75rem !important;
+        letter-spacing: 2px;
+        margin: 0.4rem 0 1.5rem;
+    }
+
+    #about-samir p {
+        font-size: 0.9rem;
+        margin-bottom: 0.7rem;
     }
 
     .service-grid {
@@ -1232,6 +1299,79 @@ nav {
     .service-block {
         transform: none !important;
     }
+
+    details.service-block {
+        border-bottom: 1px solid rgba(0,0,0,0.08);
+        padding-bottom: 0;
+    }
+
+    details.service-block summary {
+        cursor: pointer;
+        list-style: none;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 1.2rem 0;
+    }
+
+    details.service-block summary::-webkit-details-marker {
+        display: none;
+    }
+
+    details.service-block summary::after {
+        content: "+";
+        font-size: 1.1rem;
+        color: #bbb;
+        font-weight: 300;
+        transition: transform 0.3s ease, color 0.3s ease;
+        flex-shrink: 0;
+    }
+
+    details.service-block[open] summary::after {
+        content: "+";
+        transform: rotate(45deg);
+        color: #111;
+    }
+
+    details.service-block > h3 {
+        display: none;
+    }   
+
+    details.service-block summary h3 {
+        margin-bottom: 0;
+        font-size: 1.2rem;
+        text-align: left;
+    }
+
+    details.service-block .details-content {
+        overflow: hidden;
+        animation: slideDown 0.9s ease;
+        padding-bottom: 1.2rem;
+    }
+
+    details.service-block p {
+        margin-top: 0.7rem;
+        text-align: left;
+        font-size: 0.85rem !important;
+        color: #555;
+    }
+
+    /* Remove the ::before decorative line on mobile */
+    details.service-block::before {
+        display: none;
+    }
+
+    @keyframes slideDown {
+        from {
+            opacity: 0;
+            transform: translateY(-6px);
+        }
+        to {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }
+
 
     .testimonial-grid {
         grid-template-columns: 1fr;
@@ -1246,9 +1386,15 @@ nav {
         gap: 2rem;
     }
 
+    .map {
+        padding: 0 1.5rem 0rem;
+    }   
+
     .map iframe:hover {
         transform: none;
     }
 
-
+    footer {
+        padding: 3rem 0;
+    }
 }
